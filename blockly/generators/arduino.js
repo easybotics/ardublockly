@@ -104,6 +104,8 @@ Blockly.Arduino.init = function(workspace) {
   Blockly.Arduino.functionNames_ = Object.create(null);
   // Create a dictionary of setups to be printed in the setup() function
   Blockly.Arduino.setups_ = Object.create(null);
+  // Create a dictionary of loop_setups to be printed in the setup() function
+  Blockly.Arduino.loops_ = Object.create(null);
   // Create a dictionary of pins to check if their use conflicts
   Blockly.Arduino.pins_ = Object.create(null);
 
@@ -174,6 +176,13 @@ Blockly.Arduino.finish = function(code) {
   if (userSetupCode) {
     setups.push(userSetupCode);
   }
+  
+  var setupCode = []; 
+  
+  for(var name in Blockly.Arduino.loops_) 
+  {
+	  setupCode.push(Blockly.Arduino.loops_[name]);
+  }
 
   // Clean up temporary data
   delete Blockly.Arduino.includes_;
@@ -188,7 +197,7 @@ Blockly.Arduino.finish = function(code) {
   var allDefs = includes.join('\n') + variables.join('\n') +
       definitions.join('\n') + functions.join('\n\n');
   var setup = 'void setup() {' + setups.join('\n  ') + '\n}\n\n';
-  var loop = 'void loop() {\n  ' + code.replace(/\n/g, '\n  ') + '\n}';
+  var loop = 'void loop() {\n  '+ setupCode.join('\n  ')  + '\n  ' + code.replace(/\n/g, '\n  ') + '\n}';
   return allDefs + setup + loop;
 };
 
@@ -248,6 +257,15 @@ Blockly.Arduino.addSetup = function(setupTag, code, overwrite) {
   var overwritten = false;
   if (overwrite || (Blockly.Arduino.setups_[setupTag] === undefined)) {
     Blockly.Arduino.setups_[setupTag] = code;
+    overwritten = true;
+  }
+  return overwritten;
+};
+
+Blockly.Arduino.addLoop = function(loopTag, code, overwrite) {
+  var overwritten = false;
+  if (overwrite || (Blockly.Arduino.loops_[loopTag] === undefined)) {
+    Blockly.Arduino.loops_[loopTag] = code;
     overwritten = true;
   }
   return overwritten;

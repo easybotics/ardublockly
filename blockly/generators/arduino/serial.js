@@ -57,3 +57,4 @@ Blockly.Arduino['serial_setup'] = function(block) {
   var code = '';
   return code;
 };
+

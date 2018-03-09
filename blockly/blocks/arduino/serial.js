@@ -75,6 +75,7 @@ Blockly.Blocks['serial_print'] = {
         .appendField(new Blockly.FieldDropdown(
                 Blockly.Arduino.Boards.selected.serial), 'SERIAL_ID')
         .appendField(Blockly.Msg.ARD_SERIAL_PRINT);
+
     this.appendValueInput('CONTENT');
     this.appendDummyInput()
         .appendField(new Blockly.FieldCheckbox('TRUE'), 'NEW_LINE')
@@ -128,3 +129,5 @@ Blockly.Blocks['serial_print'] = {
         this, 'SERIAL_ID', 'serial');
   }
 };
+
+
