@@ -2,13 +2,13 @@
 
 goog.provide('Blockly.Arduino.bipedPrint');
 goog.provide('Blockly.Arduino.bipedMove');
+goog.provide('Blockly.Arduino.bipedWait'); 
 
 goog.require('Blockly.Arduino');
 
 
 function setupBiped()
 {
-
 	var bipedId = 'biped';
 	var setupCode = bipedId + '.setup();';
 	var loopCode = bipedId + '.loop();'; 
@@ -24,15 +24,12 @@ Blockly.Arduino['biped_print'] = function(block)
 	var bipedId = 'biped';
 	var content = Blockly.Arduino.valueToCode(
 		block, 'CONTENT', Blockly.Arduino.ORDER_ATOMIC) || '0';
-	
-
 
 	return bipedId + '.print(' + content + ');\n';
 }
 
 Blockly.Arduino['biped_move'] = function(block)
 {
-
 	setupBiped();
 	var bipedId = 'biped';
 	//var bipedId = block.getFieldValue('BIPED_ID');
@@ -47,6 +44,19 @@ Blockly.Arduino['biped_move'] = function(block)
 						   + ');\n'; 
 
 	return moveCode; 
+}
+
+Blockly.Arduino['biped_wait'] = function(block)
+{
+	setupBiped();
+	var bipedId = 'biped'; 
+	var servo = block.getFieldValue('SERVO_NUM'); 
+	var milli = Blockly.Arduino.valueToCode(
+		block, 'TIME', Blockly.Arduino.ORDER_ATOMIC) || '0';
+
+		var moveCode = bipedId + '.' + 'waitPause(' + servo + ',' + milli + ');\n'; 
+
+		return moveCode; 
 }
 
 Blockly.Arduino['biped_button'] = function(block) 
@@ -81,5 +91,4 @@ Blockly.Arduino['biped_button'] = function(block)
 	}
 
 	return null; 
-
 };

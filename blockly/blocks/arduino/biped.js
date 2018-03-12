@@ -3,6 +3,7 @@
 goog.provide('Blockly.Blocks.bipedPrint');
 goog.provide('Blockly.Blocks.bipedMove');
 goog.provide('Blockly.Blocks.bipedButton');
+goog.provide('Blockly.Blocks.bipedWait'); 
 
 goog.require('Blockly.Blocks');
 goog.require('Blockly.Types');
@@ -65,6 +66,29 @@ Blockly.Blocks['biped_move'] =
 	{
 	}
 };
+
+Blockly.Blocks['biped_wait'] = 
+{
+	init: function()
+	{
+		this.setColour(Blockly.Blocks.bipedMove.HUE);
+		this.appendDummyInput()
+			.appendField("wait for:"); 
+
+		this.appendDummyInput()
+			.appendField(new Blockly.FieldDropdown(
+				Blockly.Arduino.Boards.selected.servos), 'SERVO_NUM')
+			.appendField("servo"); 
+
+		this.appendValueInput('TIME')
+			.setCheck('Number')
+			.setAlign(Blockly.ALIGN_RIGHT)
+			.appendField('millisecond value'); 
+
+		this.setPreviousStatement(true,null);
+		this.setNextStatement(true,null);
+	}
+}; 
 
 Blockly.Blocks['biped_button'] = 
 {
