@@ -95,17 +95,16 @@ Blockly.Blocks['biped_led'] =
 {
 	init: function()
 	{
-		this.appendDummyInput()
-			.appendField("Led #:");
 
 		this.setColour(Blockly.Blocks.bipedMove.HUE);
 		this.appendDummyInput()
+			.appendField("change led")
 			.appendField(new Blockly.FieldDropdown(
 				Blockly.Arduino.Boards.selected.leds), 'LED_NUM');
 
 
 		this.appendDummyInput()
-			.appendField("Led Colour")
+			.appendField("to colour")
 			.appendField(new Blockly.FieldColour('#ff0000'), 'LED_COLOUR');
 
 		this.setPreviousStatement(true,null);
