@@ -3,6 +3,7 @@
 goog.provide('Blockly.Arduino.bipedPrint');
 goog.provide('Blockly.Arduino.bipedMove');
 goog.provide('Blockly.Arduino.bipedWait'); 
+goog.provide('Blockly.Arduino.bipedLed');
 
 goog.require('Blockly.Arduino');
 
@@ -17,6 +18,18 @@ function setupBiped()
 	Blockly.Arduino.addSetup('biped', setupCode, true);
 	Blockly.Arduino.addLoop('bipedLoop',loopCode, true);
 }
+
+
+function hexToRgb(hex) {
+    var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+    return result ? {
+        r: parseInt(result[1], 16),
+        g: parseInt(result[2], 16),
+        b: parseInt(result[3], 16)
+    } : null;
+}
+
+
 
 Blockly.Arduino['biped_print'] = function(block)
 {
@@ -59,6 +72,18 @@ Blockly.Arduino['biped_wait'] = function(block)
 		return moveCode; 
 }
 
+Blockly.Arduino['biped_led'] = function(block)
+{
+	setupBiped();
+	var bipedId = 'biped';
+	var ledPin = block.getFieldValue('LED_NUM') || 0;
+	var hex = hexToRgb(block.getFieldValue('LED_COLOUR'));
+	var hexCode = hex.r + ',' + hex.g + ',' + hex.b;
+	
+	var ledCode = bipedId + '.' + 'led.single(' + ledPin + ',' + hexCode + ');\n';
+	return ledCode;
+}
+
 Blockly.Arduino['biped_button'] = function(block) 
 {
 	function statementToCodeNoTab(block, name) 
@@ -92,3 +117,5 @@ Blockly.Arduino['biped_button'] = function(block)
 
 	return null; 
 };
+
+Blockly

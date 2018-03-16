@@ -4,6 +4,7 @@ goog.provide('Blockly.Blocks.bipedPrint');
 goog.provide('Blockly.Blocks.bipedMove');
 goog.provide('Blockly.Blocks.bipedButton');
 goog.provide('Blockly.Blocks.bipedWait'); 
+goog.provide('Blockly.Blocks.bipedLed'); 
 
 goog.require('Blockly.Blocks');
 goog.require('Blockly.Types');
@@ -90,6 +91,30 @@ Blockly.Blocks['biped_wait'] =
 	}
 }; 
 
+Blockly.Blocks['biped_led'] = 
+{
+	init: function()
+	{
+		this.appendDummyInput()
+			.appendField("Led #:");
+
+		this.setColour(Blockly.Blocks.bipedMove.HUE);
+		this.appendDummyInput()
+			.appendField(new Blockly.FieldDropdown(
+				Blockly.Arduino.Boards.selected.leds), 'LED_NUM');
+
+
+		this.appendDummyInput()
+			.appendField("Led Colour")
+			.appendField(new Blockly.FieldColour('#ff0000'), 'LED_COLOUR');
+
+		this.setPreviousStatement(true,null);
+		this.setNextStatement(true,null);
+	}
+};
+
+
+
 Blockly.Blocks['biped_button'] = 
 {
 	init: function()
@@ -107,3 +132,5 @@ Blockly.Blocks['biped_button'] =
 		this.contextMenu = false; 
 	}
 };
+
+

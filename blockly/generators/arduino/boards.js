@@ -94,6 +94,7 @@ Blockly.Arduino.Boards.profiles.uno = {
   serial: [['serial', 'Serial']],
   biped: [['biped', 'biped']],
   servos: [['leftfoot','LF'],['rightfoot', 'RF']],
+  leds: [['one','1'], ['two','2'], ['three','3'], ['four','4'], ['five','5']], 
   serialPins: { Serial: [['RX', '0'], ['TX', '1']] },
   serialSpeed: [['300', '300'], ['600', '600'], ['1200', '1200'],
                 ['2400', '2400'], ['4800', '4800'], ['9600', '9600'],
