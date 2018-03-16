@@ -75,7 +75,7 @@ Blockly.Blocks['biped_wait'] =
 		this.appendDummyInput()
 			.appendField("wait for")
 			.appendField(new Blockly.FieldDropdown(
-				Blockly.Arduino.Boards.selected.servos), 'SERVO_NUM')
+				Blockly.Arduino.Boards.selected.waitServos), 'SERVO_NUM')
 			.appendField("servo"); 
 
 		this.appendValueInput('TIME')
