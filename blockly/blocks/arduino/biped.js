@@ -39,11 +39,9 @@ Blockly.Blocks['biped_move'] =
 	init: function()
 	{
 
-		this.appendDummyInput()
-			.appendField("move:"); 
-
 		this.setColour(Blockly.Blocks.bipedMove.HUE);
 		this.appendDummyInput()
+			.appendField("rotate")
 			.appendField(new Blockly.FieldDropdown(
 				Blockly.Arduino.Boards.selected.servos), 'SERVO_NUM')
 			.appendField("servo"); 
@@ -73,10 +71,9 @@ Blockly.Blocks['biped_wait'] =
 	init: function()
 	{
 		this.setColour(Blockly.Blocks.bipedMove.HUE);
-		this.appendDummyInput()
-			.appendField("wait for:"); 
 
 		this.appendDummyInput()
+			.appendField("wait for")
 			.appendField(new Blockly.FieldDropdown(
 				Blockly.Arduino.Boards.selected.servos), 'SERVO_NUM')
 			.appendField("servo"); 
@@ -111,8 +108,6 @@ Blockly.Blocks['biped_led'] =
 		this.setNextStatement(true,null);
 	}
 };
-
-
 
 Blockly.Blocks['biped_button'] = 
 {
