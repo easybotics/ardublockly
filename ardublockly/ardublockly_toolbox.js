@@ -227,6 +227,7 @@ Ardublockly.TOOLBOX_XML =
 '    <block type="biped_button"></block>' +
 '    <block type="biped_wait"></block>' +
 '    <block type="biped_led"></block>' +
+'    <block type="biped_proximity_read"></block>' +
 '    <block type="text_prompt_ext">' +
 '      <value name="TEXT">' +
 '        <block type="text"></block>' +

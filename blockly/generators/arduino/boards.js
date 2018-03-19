@@ -96,6 +96,7 @@ Blockly.Arduino.Boards.profiles.uno = {
   servos: [['left leg','LL'],['right leg','RL'],['left foot','LF'],['right foot', 'RF']],
   waitServos: [['left leg','LL'],['right leg','RL'],['left foot','LF'],['right foot', 'RF'],['all','ALL_SERVOS']],
   leds: [['one','1'], ['two','2'], ['three','3'], ['four','4'], ['five','5']], 
+  proximitySensors: [['Front Left', '0'], ['Front Right','1'], ['Right Side','2'], ['Left Side', '3']],
   serialPins: { Serial: [['RX', '0'], ['TX', '1']] },
   serialSpeed: [['300', '300'], ['600', '600'], ['1200', '1200'],
                 ['2400', '2400'], ['4800', '4800'], ['9600', '9600'],

@@ -4,6 +4,7 @@ goog.provide('Blockly.Arduino.bipedPrint');
 goog.provide('Blockly.Arduino.bipedMove');
 goog.provide('Blockly.Arduino.bipedWait'); 
 goog.provide('Blockly.Arduino.bipedLed');
+goog.provide('Blockly.Arduino.bipedProximityRead');
 
 goog.require('Blockly.Arduino');
 
@@ -86,6 +87,7 @@ Blockly.Arduino['biped_led'] = function(block)
 
 Blockly.Arduino['biped_button'] = function(block) 
 {
+	setupBiped();
 	function statementToCodeNoTab(block, name) 
 	{
 		var targetBlock = block.getInputTargetBlock(name);
@@ -118,4 +120,11 @@ Blockly.Arduino['biped_button'] = function(block)
 	return null; 
 };
 
-Blockly
+Blockly.Arduino['biped_proximity_read'] = function(block) 
+{
+	setupBiped();
+	var pinKey = block.getFieldValue('SENSOR_PIN');
+
+	var code = 'biped.getProx(' + pinKey + ')';
+	return [code, Blockly.Arduino.ORDER_ATOMIC];
+};
