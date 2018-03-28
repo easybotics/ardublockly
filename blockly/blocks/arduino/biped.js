@@ -132,7 +132,7 @@ Blockly.Blocks['biped_bluetooth_button'] =
 	init: function()
 	{
 		this.appendDummyInput()
-			.appendField("Button: ")
+			.appendField("Bluetooth button: ")
 			.appendField(new Blockly.FieldDropdown(
 				Blockly.Arduino.Boards.selected.buttons), 'BUTTON_CHAR');
 		this.appendStatementInput('FUNC'); 
@@ -162,5 +162,4 @@ Blockly.Blocks['biped_proximity_read'] =
 	{
 		return Blockly.Types.NUMBER;
 	},
-
 };
