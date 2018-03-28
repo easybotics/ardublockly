@@ -27,9 +27,6 @@ Blockly.Blocks['biped_print'] =
 
 		this.appendValueInput('CONTENT');
 
-		this.appendDummyInput()
-			.appendField(new Blockly.FieldCheckbox('TRUE'), 'NEW_LINE');
-
 		this.setInputsInline(true);
 		this.setPreviousStatement(true, null);
 		this.setNextStatement(true, null);
