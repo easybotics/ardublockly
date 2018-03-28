@@ -225,6 +225,7 @@ Ardublockly.TOOLBOX_XML =
 '    <block type="biped_print"></block>' +
 '    <block type="biped_move"></block>' +
 '    <block type="biped_button"></block>' +
+'    <block type="biped_bluetooth_button"></block>' +
 '    <block type="biped_wait"></block>' +
 '    <block type="biped_led"></block>' +
 '    <block type="biped_proximity_read"></block>' +

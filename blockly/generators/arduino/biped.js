@@ -5,6 +5,7 @@ goog.provide('Blockly.Arduino.bipedMove');
 goog.provide('Blockly.Arduino.bipedWait'); 
 goog.provide('Blockly.Arduino.bipedLed');
 goog.provide('Blockly.Arduino.bipedProximityRead');
+goog.provide('Blockly.Arduino.bipedBluetoothButton');
 
 goog.require('Blockly.Arduino');
 
@@ -21,7 +22,8 @@ function setupBiped()
 }
 
 
-function hexToRgb(hex) {
+function hexToRgb(hex) 
+{
     var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
     return result ? {
         r: parseInt(result[1], 16),
@@ -115,6 +117,34 @@ Blockly.Arduino['biped_button'] = function(block)
 	if (BBranch)
 	{
 		Blockly.Arduino.addSetup('userBButton', Bcode, true); 
+	}
+
+	return null; 
+};
+
+Blockly.Arduino['biped_bluetooth_button'] = function(block) 
+{
+	setupBiped();
+	function statementToCodeNoTab(block, name) 
+	{
+		var targetBlock = block.getInputTargetBlock(name);
+		var code = Blockly.Arduino.blockToCode(targetBlock);
+		if (!goog.isString(code)) 
+		{
+			throw 'Expecting code from statement block"' + targetBlock.type + '".'; 
+		}
+		return code; 
+	}
+
+	var Branch = Blockly.Arduino.statementToCode(block, 'FUNC');
+	var Name = Branch.split('(')[0]; 
+	var button =  block.getFieldValue('BUTTON_CHAR');
+	var code = "biped.setButton('" + button + "', " + Name.trim() + ");"; 
+
+
+	if (Branch)
+	{
+		Blockly.Arduino.addSetup('user' + button + 'Button', code, true);
 	}
 
 	return null; 

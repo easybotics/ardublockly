@@ -6,6 +6,7 @@ goog.provide('Blockly.Blocks.bipedButton');
 goog.provide('Blockly.Blocks.bipedWait'); 
 goog.provide('Blockly.Blocks.bipedLed'); 
 goog.provide('Blockly.Blocks.bipedProximityRead'); 
+goog.provide('Blockly.Blocks.bipedBluetoothButton');
 
 goog.require('Blockly.Blocks');
 goog.require('Blockly.Types');
@@ -119,6 +120,23 @@ Blockly.Blocks['biped_button'] =
 		this.appendDummyInput()
 			.appendField("Button B:");
 		this.appendStatementInput('B_FUNC');
+
+		this.setInputsInline(false);
+		this.setColour(Blockly.Blocks.bipedButton.HUE);
+		this.contextMenu = false; 
+	}
+};
+
+Blockly.Blocks['biped_bluetooth_button'] = 
+{
+	init: function()
+	{
+		this.appendDummyInput()
+			.appendField("Button: ")
+			.appendField(new Blockly.FieldDropdown(
+				Blockly.Arduino.Boards.selected.buttons), 'BUTTON_CHAR');
+		this.appendStatementInput('FUNC'); 
+
 
 		this.setInputsInline(false);
 		this.setColour(Blockly.Blocks.bipedButton.HUE);
