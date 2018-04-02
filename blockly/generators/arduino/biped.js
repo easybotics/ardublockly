@@ -62,6 +62,26 @@ Blockly.Arduino['biped_move'] = function(block)
 	return moveCode; 
 }
 
+Blockly.Arduino['biped_pin_move'] = function(block)
+{
+	setupBiped();
+	var bipedId = 'biped';
+	//var bipedId = block.getFieldValue('BIPED_ID');
+	var servo = Blockly.Arduino.valueToCode(
+		block, 'PIN', Blockly.Arduino.ORDER_ATOMIC) || '0';
+
+	var milli  = Blockly.Arduino.valueToCode(
+		block, 'TIME', Blockly.Arduino.ORDER_ATOMIC) || '0'; 
+
+	var deg  = Blockly.Arduino.valueToCode(
+		block, 'DEGREE', Blockly.Arduino.ORDER_ATOMIC) || '0'; 
+
+	var moveCode = bipedId + '.' + 'move(' + servo + ', ' + deg + ', ' + milli 
+						   + ');\n'; 
+
+	return moveCode; 
+}
+
 Blockly.Arduino['biped_wait'] = function(block)
 {
 	setupBiped();

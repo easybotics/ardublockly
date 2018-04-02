@@ -175,6 +175,23 @@ Ardublockly.TOOLBOX_XML =
 '        </block>' +
 '      </value>' +
 '    </block>' +
+'    <block type="biped_pin_move">' +
+'      <value name="PIN">' +
+'        <block type="math_number">' +
+'          <field name="NUM">0</field>' +
+'        </block>' +
+'      </value>' +
+'      <value name="DEGREE">' +
+'        <block type="math_number">' +
+'          <field name="NUM">90</field>' +
+'        </block>' +
+'      </value>' +
+'      <value name="TIME">' +
+'        <block type="math_number">' +
+'          <field name="NUM">1000</field>' +
+'        </block>' +
+'      </value>' +
+'    </block>' +
 '    <block type="biped_wait">>' +
 '      <value name="TIME">' +
 '        <block type="math_number">' +

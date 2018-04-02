@@ -66,6 +66,44 @@ Blockly.Blocks['biped_move'] =
 	}
 };
 
+Blockly.Blocks['biped_pin_move'] = 
+{
+	init: function()
+	{
+
+		this.setColour(Blockly.Blocks.bipedMove.HUE);
+
+
+		this.appendValueInput('PIN')
+			.setCheck('Number')
+			.appendField("rotate servo pin#")
+			.setAlign(Blockly.ALIGN_RIGHT);
+
+		this.appendValueInput('DEGREE')
+			.setCheck('Number')
+			.setAlign(Blockly.ALIGN_RIGHT)
+			.appendField('degree value'); 
+
+		this.appendValueInput('TIME')
+				.setCheck('Number')
+				.setAlign(Blockly.ALIGN_RIGHT)
+				.appendField('millisecond value'); 
+
+
+		this.setPreviousStatement(true,null);
+		this.setNextStatement(true,null);
+	},
+
+	updateFields: function() 
+	{
+	}
+};
+
+
+
+
+
+
 Blockly.Blocks['biped_wait'] = 
 {
 	init: function()
