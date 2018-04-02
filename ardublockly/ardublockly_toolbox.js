@@ -123,35 +123,11 @@ Ardublockly.TOOLBOX_XML =
 '  <category id="catFunctions" name="Functions" custom="PROCEDURE"></category>' +
 '  <sep></sep>' +
 '  <category id="catInputOutput" name="Input/Output">' +
-'    <block type="io_digitalwrite">' +
-'      <value name="STATE">' +
-'        <block type="io_highlow"></block>' +
-'      </value>' +
-'    </block>' +
-'    <block type="io_digitalread"></block>' +
-'    <block type="io_builtin_led">' +
-'      <value name="STATE">' +
-'        <block type="io_highlow"></block>' +
-'      </value>' +
-'    </block>' +
-'    <block type="io_analogwrite"></block>' +
-'    <block type="io_analogread"></block>' +
-'    <block type="io_highlow"></block>' +
-'    <block type="io_pulsein">' +
-'      <value name="PULSETYPE">' +
-'        <shadow type="io_highlow"></shadow>' +
-'      </value>' +
-'    </block>' +
-'    <block type="io_pulsetimeout">' +
-'      <value name="PULSETYPE">' +
-'        <shadow type="io_highlow"></shadow>' +
-'      </value>' +
-'      <value name="TIMEOUT">' +
-'        <shadow type="math_number">' +
-'          <field name="NUM">100</field>' +
-'        </shadow>' +
-'      </value>'+
-'    </block>' +
+'    <block type="biped_led"></block>' +
+'    <block type="biped_proximity_read"></block>' +
+'    <block type="biped_print"></block>' +
+'    <block type="biped_bluetooth_button"></block>' +
+'    <block type="biped_button"></block>' +
 '  </category>' +
 '  <sep></sep>' +
 '  <category id="catTime" name="Time">' +
@@ -186,56 +162,30 @@ Ardublockly.TOOLBOX_XML =
 '    <block type="io_notone"></block>' +
 '  </category>' +
 '  <sep></sep>' +
-'  <category id="catMotors" name="Motors">' +
-'    <block type="servo_write">' +
-'      <value name="SERVO_ANGLE">' +
+'  <category id="catMotors" name="Servos">' +
+'    <block type="biped_move">' +
+'      <value name="DEGREE">' +
 '        <block type="math_number">' +
 '          <field name="NUM">90</field>' +
 '        </block>' +
 '      </value>' +
-'    </block>' +
-'    <block type="servo_read"></block>' +
-'    <block type="stepper_config">' +
-'      <field name="STEPPER_NUMBER_OF_PINS">2</field>' +
-'      <field name="STEPPER_PIN1">1</field>' +
-'      <field name="STEPPER_PIN2">2</field>' +
-'      <value name="STEPPER_STEPS">' +
+'      <value name="TIME">' +
 '        <block type="math_number">' +
-'          <field name="NUM">100</field>' +
-'        </block>' +
-'      </value>' +
-'      <value name="STEPPER_SPEED">' +
-'        <block type="math_number">' +
-'          <field name="NUM">10</field>' +
+'          <field name="NUM">1000</field>' +
 '        </block>' +
 '      </value>' +
 '    </block>' +
-'    <block type="stepper_step">' +
-'      <value name="STEPPER_STEPS">' +
+'    <block type="biped_wait">>' +
+'      <value name="TIME">' +
 '        <block type="math_number">' +
-'          <field name="NUM">10</field>' +
+'          <field name="NUM">1000</field>' +
 '        </block>' +
 '      </value>' +
-'    </block>' +
+'   </block>' +
 '  </category>' +
 '  <sep></sep>' +
 '  <category id="catComms" name="Comms">' +
 '    <block type="serial_setup"></block>' +
 '    <block type="serial_print"></block>' +
-'    <block type="biped_print"></block>' +
-'    <block type="biped_move"></block>' +
-'    <block type="biped_button"></block>' +
-'    <block type="biped_bluetooth_button"></block>' +
-'    <block type="biped_wait"></block>' +
-'    <block type="biped_led"></block>' +
-'    <block type="biped_proximity_read"></block>' +
-'    <block type="text_prompt_ext">' +
-'      <value name="TEXT">' +
-'        <block type="text"></block>' +
-'      </value>' +
-'    </block>' +
-'    <block type="spi_setup"></block>' +
-'    <block type="spi_transfer"></block>' +
-'    <block type="spi_transfer_return"></block>' +
 '  </category>' +
 '</xml>';

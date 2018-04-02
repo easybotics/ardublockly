@@ -33,13 +33,16 @@ Blockly.Blocks['servo_write'] = {
         .appendField(Blockly.Msg.ARD_SERVO_WRITE)
         .appendField(new Blockly.FieldDropdown(
             Blockly.Arduino.Boards.selected.digitalPins), 'SERVO_PIN');
+
     this.setInputsInline(false);
     this.appendValueInput('SERVO_ANGLE')
         .setCheck(Blockly.Types.NUMBER.checkList)
         .appendField(Blockly.Msg.ARD_SERVO_WRITE_TO);
+
     this.appendDummyInput()
         .appendField(Blockly.Msg.ARD_SERVO_WRITE_DEG_180);
     this.setInputsInline(true);
+
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setTooltip(Blockly.Msg.ARD_SERVO_WRITE_TIP);
