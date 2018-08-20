@@ -41,7 +41,7 @@ Blockly.Arduino['biped_print'] = function(block)
 	var content = Blockly.Arduino.valueToCode(
 		block, 'CONTENT', Blockly.Arduino.ORDER_ATOMIC) || '0';
 
-	return bipedId + '.print(' + content + ');\n';
+	return bipedId + '.display.print(' + content + ');\n';
 }
 
 Blockly.Arduino['biped_move'] = function(block)
@@ -56,7 +56,7 @@ Blockly.Arduino['biped_move'] = function(block)
 	var deg  = Blockly.Arduino.valueToCode(
 		block, 'DEGREE', Blockly.Arduino.ORDER_ATOMIC) || '0'; 
 
-	var moveCode = bipedId + '.' + 'move(' + servo + ', ' + deg + ', ' + milli 
+	var moveCode = bipedId + '.servo' + '.moveSet(' + servo + ', ' + deg + ', ' + milli 
 						   + ');\n'; 
 
 	return moveCode; 
@@ -76,7 +76,7 @@ Blockly.Arduino['biped_pin_move'] = function(block)
 	var deg  = Blockly.Arduino.valueToCode(
 		block, 'DEGREE', Blockly.Arduino.ORDER_ATOMIC) || '0'; 
 
-	var moveCode = bipedId + '.' + 'move(' + servo + ', ' + deg + ', ' + milli 
+	var moveCode = bipedId + '.servo' + '.move(' + servo + ', ' + deg + ', ' + milli 
 						   + ');\n'; 
 
 	return moveCode; 
@@ -90,7 +90,7 @@ Blockly.Arduino['biped_wait'] = function(block)
 	var milli = Blockly.Arduino.valueToCode(
 		block, 'TIME', Blockly.Arduino.ORDER_ATOMIC) || '0';
 
-		var moveCode = bipedId + '.' + 'waitPause(' + servo + ',' + milli + ');\n'; 
+		var moveCode = bipedId + '.servo' + '.waitSet(' + servo + ',' + milli + ');\n'; 
 
 		return moveCode; 
 }
